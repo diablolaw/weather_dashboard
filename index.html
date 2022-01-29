@@ -24,8 +24,19 @@
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="search-city" />
           <button class="btn bg-primary text-light" id="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
+          <ul class="list-group"></ul>
       </aside>
-      <section></section>
+      <section>
+          <div class="row ml-2 border border-dark rounded">
+              <div class="col-sm-12" id="current-weather">
+                  <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
+                  <p>Temp: <span class="current" id="temperature"></span></p>
+                  <p>Wind: <span class="current" id="wind-speed"></span></p>
+                  <p>Humidity: <span class="current" id="humidity"></span></p>
+                  <p>UV Index: <span class="current bg-danger rounded py-2 px-2 text-white" id="uv-index"></span></p>
+              </div>
+          </div>
+      </section>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./script.js"></script>

@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+header {
+  padding: 30px;
+  text-align: center;
+  background-image: linear-gradient(
+    to right,
+    rgb(61, 139, 165),
+    rgb(30, 30, 117)
+  );
+  color: #fff;
+  font-weight: 900;
+}
+main {
+  display: flex;
+}
+
+aside {
+  flex: 30%;
+  background-color: #b9c6ae;
+  padding: 20px;
+  flex-wrap: wrap;
+}
+
+section {
+  flex: 70%;
+  background-color: #fff;
+  padding: 20px;
+}

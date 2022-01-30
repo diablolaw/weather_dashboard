@@ -34,3 +34,7 @@ section {
   background-color: #fff;
   padding: 20px;
 }
+
+.custom-bg {
+  background-color: rgb(6, 6, 97);
+}

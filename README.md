@@ -1,4 +1,5 @@
 # weather_dashboard
+![image](https://user-images.githubusercontent.com/94478511/151898550-289c401a-87b3-4931-b96f-64afcdee8cb8.png)
 
 Deployed app:
 https://diablolaw.github.io/weather_dashboard/

@@ -38,3 +38,12 @@ section {
 .custom-bg {
   background-color: rgb(6, 6, 97);
 }
+li {
+  text-align: center;
+  font-weight: bolder;
+  background-color: grey;
+}
+
+p {
+  font-weight: 500;
+}

@@ -10,6 +10,15 @@ var sCity = [];
 
 var APIKey = "cf06d4bf308acb2291d4d85ad2c8ccea";
 
+function find(c) {
+  for (var i = 0; i < sCity.length; i++) {
+    if (c.toUpperCase() === sCity[i]) {
+      return -1;
+    }
+  }
+  return 1;
+}
+
 function displayWeather(e) {
   e.preventDefault();
   if (searchCity.val().trim() !== "") {
@@ -48,6 +57,23 @@ function currentWeather(city) {
 
       UVIndex(data.coord.lon, data.coord.lat);
       forecast(data.id);
+
+      if (data.cod == 200) {
+        sCity = JSON.parse(localStorage.getItem("cityname"));
+        console.log(sCity);
+        if (sCity == null) {
+          sCity = [];
+          sCity.push(city.toUpperCase());
+          localStorage.setItem("cityname", JSON.stringify(sCity));
+          addToList(city);
+        } else {
+          if (find(city) > 0) {
+            sCity.push(city.toUpperCase());
+            localStorage.setItem("cityname", JSON.stringify(sCity));
+            addToList(city);
+          }
+        }
+      }
     });
 }
 function UVIndex(ln, lt) {
@@ -64,6 +90,13 @@ function UVIndex(ln, lt) {
     })
     .then(function (data) {
       $(currentUvindex).html(data.value);
+      if (data.value < 3) {
+        $(currentUvindex).css("background-color", "green");
+      } else if (data.value < 6) {
+        $(currentUvindex).css("background-color", "yellow");
+      } else {
+        $(currentUvindex).css("background-color", "red");
+      }
     });
 }
 
@@ -89,6 +122,10 @@ function forecast(cityid) {
         var tempF = ((tempK - 273.5) * 1.8 + 32).toFixed(2);
         var humidity = response.list[(i + 1) * 8 - 1].main.humidity;
 
+        var ws = response.list[(i + 1) * 8 - 1].wind.speed;
+        var windsmph = (ws * 2.237).toFixed(1);
+        $("#fWind" + i).html(windsmph + "MPH");
+
         $("#fDate" + i).html(date);
         $("#fImg" + i).html("<img src=" + iconurl + ">");
         $("#fTemp" + i).html(tempF + "&#8457");
@@ -97,5 +134,33 @@ function forecast(cityid) {
     });
 }
 
+function addToList(c) {
+  var listEl = $("<li>" + c.toUpperCase() + "</li>");
+  $(listEl).attr("class", "list-group-item");
+  $(listEl).addClass("list-group-item-secondary");
+  $(listEl).attr("data-value", c.toUpperCase());
+  $(".list-group").append(listEl);
+}
+
+function invokePastSearch(event) {
+  var liEl = event.target;
+  if (event.target.matches("li")) {
+    city = liEl.textContent.trim();
+    currentWeather(city);
+  }
+}
+function loadlastCity() {
+  $("ul").empty();
+  var sCity = JSON.parse(localStorage.getItem("cityname"));
+  if (sCity !== null) {
+    for (i = 0; i < sCity.length; i++) {
+      addToList(sCity[i]);
+    }
+    city = sCity[i - 1];
+    currentWeather(city);
+  }
+}
 $("#search-button").on("click", displayWeather);
 currentWeather("London");
+$(document).on("click", invokePastSearch);
+$(window).on("load", loadlastCity);

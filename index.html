@@ -11,7 +11,10 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -23,59 +26,84 @@
         <h2>Search for a City:</h2>
         <div class="input-group mb-3">
           <input type="text" class="form-control" id="search-city" />
-          <button class="btn bg-primary text-light" id="search-button"><i class="fa fa-search" aria-hidden="true"></i></button>
-          <ul class="list-group"></ul>
+          <button class="btn bg-primary text-light" id="search-button">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+        <ul class="list-group"></ul>
       </aside>
       <section>
-          <div class="row ml-2 border border-dark rounded">
-              <div class="col-sm-12" id="current-weather">
-                  <h3 class="city-name mb-1 mt-2 font-weight-bold" id="current-city"></h3>
-                  <p>Temp: <span class="current" id="temperature"></span></p>
-                  <p>Wind: <span class="current" id="wind-speed"></span></p>
-                  <p>Humidity: <span class="current" id="humidity"></span></p>
-                  <p>UV Index: <span class="current bg-danger rounded py-2 px-2 text-white" id="uv-index"></span></p>
-              </div>
+        <div class="row ml-0 col-sm-12">
+          <div
+            class="col-sm-11 border border-5 bg-light rounded"
+            id="current-weather"
+          >
+            <h3
+              class="city-name mb-1 mt-2 font-weight-bold"
+              id="current-city"
+            ></h3>
+            <p>Temp: <span class="current" id="temperature"></span></p>
+            <p>Wind: <span class="current" id="wind-speed"></span></p>
+            <p>Humidity: <span class="current" id="humidity"></span></p>
+            <p>
+              UV Index:
+              <span
+                class="current rounded py-2 px-2 text-white"
+                id="uv-index"
+              ></span>
+            </p>
           </div>
-          <div class="col-sm-12" id="future-weather">
-              <h3 class="font-weight-bold pt-3">5-Day Forecast:</h3>
-              <div class="row text-light">
-                  <div class="col-sm-2 custom-bg forcast text-white ml-2 mb-3 p-2 mt-2 rounded">
-                      <p id="fDate0"></p>
-                      <p id="fImg0"></p>
-                      <p>Temp: <span id="fTemp0"></span></p>
-                      <p>Wind: <span id="fWind0"></span></p>
-                      <p>Humidity: <span id="fHumidity0"></span></p>
-                  </div>
-                  <div class="col-sm-2 custom-bg forcast text-white ml-2 mb-3 p-2 mt-2 rounded">
-                    <p id="fDate1"></p>
-                    <p id="fImg1"></p>
-                    <p>Temp: <span id="fTemp1"></span></p>
-                    <p>Wind: <span id="fWind1"></span></p>
-                    <p>Humidity: <span id="fHumidity1"></span></p>
-                   </div>
-                   <div class="col-sm-2 custom-bg forcast text-white ml-2 mb-3 p-2 mt-2 rounded">
-                    <p id="fDate2"></p>
-                    <p id="fImg2"></p>
-                    <p>Temp: <span id="fTemp2"></span></p>
-                    <p>Wind: <span id="fWind2"></span></p>
-                    <p>Humidity: <span id="fHumidity2"></span></p>
-                    </div>
-                    <div class="col-sm-2 custom-bg forcast text-white ml-2 mb-3 p-2 mt-2 rounded">
-                        <p id="fDate3"></p>
-                        <p id="fImg3"></p>
-                        <p>Temp: <span id="fTemp3"></span></p>
-                        <p>Wind: <span id="fWind3"></span></p>
-                        <p>Humidity: <span id="fHumidity3"></span></p>
-                    </div>
-                    <div class="col-sm-2 custom-bg forcast text-white ml-2 mb-3 p-2 mt-2 rounded">
-                        <p id="fDate4"></p>
-                        <p id="fImg4"></p>
-                        <p>Temp: <span id="fTemp4"></span></p>
-                        <p>Wind: <span id="fWind4"></span></p>
-                        <p>Humidity: <span id="fHumidity4"></span></p>
-                    </div>
-              </div>
+        </div>
+        <div class="col-sm-12" id="future-weather">
+          <h3 class="font-weight-bold pt-3">5-Day Forecast:</h3>
+          <div class="row text-light">
+            <div
+              class="col-sm-2 custom-bg forcast text-white ml-2 mb-3 p-2 mt-2 rounded"
+            >
+              <p id="fDate0"></p>
+              <p id="fImg0"></p>
+              <p>Temp: <span id="fTemp0"></span></p>
+              <p>Wind: <span id="fWind0"></span></p>
+              <p>Humidity: <span id="fHumidity0"></span></p>
+            </div>
+            <div
+              class="col-sm-2 custom-bg forcast text-white ml-4 mb-3 p-2 mt-2 rounded"
+            >
+              <p id="fDate1"></p>
+              <p id="fImg1"></p>
+              <p>Temp: <span id="fTemp1"></span></p>
+              <p>Wind: <span id="fWind1"></span></p>
+              <p>Humidity: <span id="fHumidity1"></span></p>
+            </div>
+            <div
+              class="col-sm-2 custom-bg forcast text-white ml-4 mb-3 p-2 mt-2 rounded"
+            >
+              <p id="fDate2"></p>
+              <p id="fImg2"></p>
+              <p>Temp: <span id="fTemp2"></span></p>
+              <p>Wind: <span id="fWind2"></span></p>
+              <p>Humidity: <span id="fHumidity2"></span></p>
+            </div>
+            <div
+              class="col-sm-2 custom-bg forcast text-white ml-4 mb-3 p-2 mt-2 rounded"
+            >
+              <p id="fDate3"></p>
+              <p id="fImg3"></p>
+              <p>Temp: <span id="fTemp3"></span></p>
+              <p>Wind: <span id="fWind3"></span></p>
+              <p>Humidity: <span id="fHumidity3"></span></p>
+            </div>
+            <div
+              class="col-sm-2 custom-bg forcast text-white ml-4 mb-3 p-2 mt-2 rounded"
+            >
+              <p id="fDate4"></p>
+              <p id="fImg4"></p>
+              <p>Temp: <span id="fTemp4"></span></p>
+              <p>Wind: <span id="fWind4"></span></p>
+              <p>Humidity: <span id="fHumidity4"></span></p>
+            </div>
           </div>
+        </div>
       </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
